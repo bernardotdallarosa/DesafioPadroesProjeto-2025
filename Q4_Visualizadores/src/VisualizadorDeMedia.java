@@ -1,10 +1,11 @@
+import java.util.LinkedList;
 import java.util.List;
 
-public class VisualizadorDeMedia {
+public class VisualizadorDeMedia implements Observer {
     private List<Integer> valores;
 
-    public VisualizadorDeMedia(List<Integer> valores){
-        this.valores = valores;
+    public VisualizadorDeMedia(){
+        this.valores = new LinkedList<>();
     }
 
     public void defineValores(List<Integer> valores){
@@ -21,5 +22,9 @@ public class VisualizadorDeMedia {
             .average()
             .orElse(0.0);
         System.out.println("Media: "+media+", quantidade de elementos analisados: "+valores.size());
+    }
+    public void update(Integer value) {
+        valores.add(value);
+        exibeMedia();
     }
 }

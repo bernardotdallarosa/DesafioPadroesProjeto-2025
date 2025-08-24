@@ -1,9 +1,10 @@
-public class App {
+public class App1 {
     public static void main(String[] args) throws Exception {
         String email = "bernardo.copstein@pucrs.br";
-        var validador = new Validador();
+        Context cont = new Context();
 
-        if (validador.valida(Validador.Tipo.EMAIL, email)){
+        cont.setStrategy(new Email());
+        if(cont.executeStrategy(email)){
             System.out.println(email+" é um email válido!");
         }else{
             System.out.println(email+" não é um email válido!");
