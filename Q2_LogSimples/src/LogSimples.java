@@ -3,23 +3,22 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-class LogSimples implements Iterable<String>{
+class LogSimples implements Iterable<String> {
     private static LogSimples instance;
     private List<String> mensagens;
 
-    private LogSimples(){
-        mensagens = new LinkedList<>(); 
+    private LogSimples() {
+        mensagens = new LinkedList<>();
     }
 
-    static synchronized public LogSimples getInstance(){
-        if(instance == null){
-                instance = new LogSimples();
-            return (instance);
+    public static LogSimples getInstance() {
+        if (instance == null) {
+            instance = new LogSimples();
         }
         return instance;
     }
 
-    public void log(String m){
+    public void log(String m) {
         String logM = LocalDate.now().toString() + " : " + m;
         mensagens.add(logM);
     }

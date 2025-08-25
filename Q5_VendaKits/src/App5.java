@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class App {
+public class App5 {
     public static void main(String[] args){
         VendasFachada proc = new VendasEmMemoria();
         List<ProdutoComponent> produtos = proc.buscarProdutos();

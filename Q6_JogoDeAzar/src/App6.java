@@ -1,4 +1,4 @@
-public class App {
+public class App6 {
     public static void main(String[] args) {
         IDado d6 = new DadoComHistorico(new Dado(6));
         IDado d20 = new DadoComHistorico(new Dado(20));

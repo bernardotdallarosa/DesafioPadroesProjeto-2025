@@ -1,10 +1,10 @@
 import java.util.LinkedList;
 import java.util.List;
 
-public class VisualizadorDeMedia implements Observer {
+public class VisualizadorDeMediaHarmonica implements Observer {
     private List<Integer> valores;
 
-    public VisualizadorDeMedia() {
+    public VisualizadorDeMediaHarmonica() {
         this.valores = new LinkedList<>();
     }
 
@@ -17,11 +17,14 @@ public class VisualizadorDeMedia implements Observer {
     }
 
     public void exibeMedia() {
-        double media = valores.stream()
-                .mapToInt(Integer::intValue)
-                .average()
-                .orElse(0.0);
-        System.out.println("Media: " + media + ", quantidade de elementos analisados: " + valores.size());
+        double somaInversos = valores.stream()
+                .mapToDouble(v -> 1.0 / v)
+                .sum();
+
+        double mediaHarmonica = valores.size() / somaInversos;
+
+        System.out.println("Média Harmônica: " + mediaHarmonica +
+                ", quantidade de elementos analisados: " + valores.size());
     }
 
     public void update(Integer value) {
